@@ -9,7 +9,6 @@ Usage:
 ```
 <!-- PASTE THIS -->
 <script type="text/javascript" src="script.js"></script>
-<link rel="stylesheet" type="text/css" href="styles.css">
 <!-- PASTE THIS END -->
 ```
 2- Hover on components

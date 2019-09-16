@@ -1,4 +1,6 @@
 window.onload = function main() {
+    loadStyle()
+
     const body = document.body.querySelectorAll( '*' );
 
     for (let i=0; i <= body.length; i++) {
@@ -10,6 +12,7 @@ window.onload = function main() {
 
         component.onmouseover = event => {
             event.cancelBubble = true
+            
             component.classList.add('hovering')
         }
 
@@ -46,8 +49,15 @@ function keyToNode(key) {
     return current
 }
     
-
+function loadStyle(){
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .hovering {
+            transition: .3s;
+            outline: 5px solid green;
+        }`
+    document.head.appendChild(style)
+}
 // <!-- PASTE HERE -->
 // <script type="text/javascript" src="script.js"></script>
-// <link rel="stylesheet" type="text/css" href="styles.css">
 // <!-- PASTE HERE END -->
