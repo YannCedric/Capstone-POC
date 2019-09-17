@@ -12,7 +12,6 @@ window.onload = function main() {
 
         component.onmouseover = event => {
             event.cancelBubble = true
-            
             component.classList.add('hovering')
         }
 
@@ -21,6 +20,7 @@ window.onload = function main() {
             let key = nodeToKey(component)
             let node = this.keyToNode(key)
             this.console.log({key,node})
+            CreatePopup()
         }
 
         component.onmouseout = _ => component.classList.remove('hovering')
@@ -55,8 +55,32 @@ function loadStyle(){
         .hovering {
             transition: .3s;
             outline: 5px solid green;
-        }`
+        }
+        .popup {
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            background-color: white;
+            z-index: 10;
+        }
+        .popup h2 {
+            color: white;
+        }
+        `
     document.head.appendChild(style)
+}
+
+function CreatePopup(x=100,y=300) {
+    const popup = document.createElement("div")
+    popup.innerHTML =`
+        <div class="popup" style="top:${x}px; left:${y}px">
+            <h2>Test</h2>
+            What is this ??
+        </div>
+    `;
+    
+    document.body.appendChild(popup)
+    return popup;
 }
 // <!-- PASTE HERE -->
 // <script type="text/javascript" src="script.js"></script>
